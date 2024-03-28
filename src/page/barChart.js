@@ -78,7 +78,6 @@ const BarChart = () => {
         <div className="flex flex-col items-center justify-center">
             <h2 className="text-xl font-bold mb-4">Bar Chart Status of:</h2>
             <select value={month} onChange={handleMonthChange} className="p-2 m-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200">
-                <option value="">Select Month</option>
                 <option value="1">January</option>
                 <option value="2">February</option>
                 <option value="3">March</option>
