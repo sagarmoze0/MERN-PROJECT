@@ -87,3 +87,4 @@ Use of REST api.
 4. http://localhost:3000/api/apitems/statistics?month: Shows total amount of sales, total sold and unsold products of selected months
 
 Initial render will show the data of current month.
+Select the month and click on search to see different products from diffrent months.
