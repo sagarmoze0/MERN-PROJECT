@@ -1,32 +1,47 @@
 import './App.css'
 import TransactionsListing from './page/transctionsTable';
 import StatisticsComponent from './page/statistics';
-import { FaCircle } from 'react-icons/fa';
-import BarChart from './page/barChart';
+import Checkout from './page/Checkout';
 import { useState } from 'react';
 
 function App() {
   const [showStatistics, setShowStatistics] = useState(false);
-  const [barChat, setBarChart]=useState(false)
+  const [showCheckout, setShowCheckout] = useState(false);
+
+  const toggleStatistics = () => {
+    setShowStatistics(!showStatistics);
+    setShowCheckout(false); // Hide checkout when showing statistics
+  };
+
+  const toggleCheckout = () => {
+    setShowCheckout(!showCheckout);
+    setShowStatistics(false); // Hide statistics when showing checkout
+  };
+
   return (
     <div className="App p-4">
-    <div className=" bg-sky-950 border border-black p-4">
-      <h1 className="text-xl font-bold mb-2 flex items-center justify-center text-white">
-      Transaction</h1>
-      <TransactionsListing />
-    </div>
-    <div className=" bg-green-200 border border-black p-4 ">
-      <h1 className="text-xl font-bold mb-2 cursor-pointer"
-      onClick={()=>setShowStatistics(!showStatistics)}>Show Statistics</h1>
-     {showStatistics && <StatisticsComponent />}
-    </div>
-    <div className=" bg-violet-200 border border-black p-4">
-      <h1 className="text-xl font-bold mb-2 cursor-pointer"
-      onClick={()=>setBarChart(!barChat)}>Show Bar Chart</h1>
-      {barChat && <BarChart />}
-      
-    </div>
+      <div className=" border-black p-4">
+        <h1 className="text-xl font-bold mb-4 flex items-center justify-center text-black">
+          ShopiFy
+        </h1>
+        <nav className="bg-green-200 border border-black p-2 flex ">
+       <div className="flex">
+  <div className="cursor-pointer" onClick={toggleStatistics}>
+    <h1 className="text-xl font-bold mb-2">Statistics</h1>
   </div>
+  {/* Vertical line */}
+  <div className="cursor-pointer border-l-2 border-black h-full ml-4 pl-4" onClick={toggleCheckout}>
+    <h1 className="text-xl font-bold mb-2">Checkout</h1>
+  </div>
+</div>
+
+      </nav>
+      {showStatistics && <StatisticsComponent />}
+      {showCheckout && <Checkout />}
+        <TransactionsListing />
+      </div>
+     
+    </div>
   );
 }
 

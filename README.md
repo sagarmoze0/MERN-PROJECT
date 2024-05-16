@@ -68,3 +68,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Abstract
+
+API used = https://s3.amazonaws.com/roxiler.com/product_transaction.json
+User can select month and see the product  regardless of year.
+Statistics shows total amount of sales, total sold and unsold products.
+Checkout component is used for payment method.
+Use of redux for state management.
+Use of REST api.
+
+### API to inspect backend
+
+1. http://localhost:3000/api/apitems/database : To store the data in satabase
+2. http://localhost:3000/api/apitems/transactions: To see the details of all products 
+3. http://localhost:3000/api/apitems/transactions?month=3 : To see the details of product for selected month
+4. http://localhost:3000/api/apitems/statistics?month: Shows total amount of sales, total sold and unsold products of selected months
+
+Initial render will show the data of current month.
